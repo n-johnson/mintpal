@@ -1,0 +1,20 @@
+{
+    "name": "mintpal",
+    "version": "0.0.1",
+    "description": "node.js wrapper for Mintpal API",
+    "main": "index.js",
+    "keywords": [
+        "bitcoin",
+        "altcoin",
+        "cryptocurrency",
+        "mintpal"
+    ],
+    "author": "Nathan Johnson",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/n-johnson/mintpal"
+    },
+    "dependencies": {
+        "": ""
+    }
+}
