@@ -1,5 +1,5 @@
 /**
- * index.js
+ * Mintpal.js
  * Author: Nathan Johnson
  */
 
@@ -17,8 +17,19 @@ var API = {
             }
         });
     },
-    getLastTrades: function(currency, masterCurrency, cb) {
+    getMarketSummary: function(cb) {
+        var url = API.baseUrl + 'summary/';
+        return this._req(url, cb);
+    },
+    getCoinSummary: function(currency, masterCurrency, cb) {
+        var url = API.baseUrl + 'stats/' + currency + '/' + masterCurrency;
+        return this._req(url, cb);
+    },
+    getLastTrades: function(currency, masterCurrency, cb, optionalLimit) {
         var url = API.baseUrl + 'trades/' + currency + '/' + masterCurrency;
+        if (typeof optionalLimit !== 'undefined') {
+            url += '/' + optionalLimit;
+        }
         return this._req(url, cb);
     },
     getOrdersBuy: function(currency, masterCurrency, cb) {
@@ -33,12 +44,8 @@ var API = {
         var url = API.baseUrl + 'orders/' + currency + '/' + masterCurrency + '/ALL/200';
         return this._req(url, cb);
     },
-    getHistoricalData: function(marketID, period, cb) {
+    getChartData: function(marketID, period, cb) {
         var url = API.baseUrl + 'chartdata/' + marketID + '/' + period;
-        return this._req(url, cb);
-    },
-    getAllCoins: function(cb) {
-        var url = API.baseUrl + 'summary/';
         return this._req(url, cb);
     }
 };
